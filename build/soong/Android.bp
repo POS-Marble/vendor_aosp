@@ -386,34 +386,18 @@ surfaceflinger_qcom_extensions {
 }
 
 soong_config_module_type {
-    name: "uses_oplus_camera",
+    name: "target_camera_package_name",
     module_type: "cc_defaults",
     config_namespace: "customGlobalVars",
-    bool_variables: ["uses_oplus_camera"],
-    properties: ["cppflags"],
-}
-uses_oplus_camera {
-    name: "uses_oplus_camera_defaults",
-    soong_config_variables: {
-        uses_oplus_camera: {
-            cppflags: ["-DUSES_OPLUS_CAMERA"],
-        },
-    },
-}
-
-soong_config_module_type {
-    name: "uses_nothing_camera",
-    module_type: "cc_defaults",
-    config_namespace: "customGlobalVars",
-    bool_variables: ["uses_nothing_camera"],
+    value_variables: ["target_camera_package_name"],
     properties: ["cppflags"],
 }
 
-uses_nothing_camera {
-    name: "uses_nothing_camera_defaults",
+target_camera_package_name {
+    name: "camera_package_name_defaults",
     soong_config_variables: {
-        uses_nothing_camera: {
-            cppflags: ["-DUSES_NOTHING_CAMERA"],
+        target_camera_package_name: {
+            cppflags: ["-DCAMERA_PACKAGE_NAME=\"%s\""],
         },
     },
 }
